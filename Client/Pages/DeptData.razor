@@ -1,0 +1,14 @@
+﻿@page "/dept/{DeptName}"
+
+<h3 class="text-center bg-primary">Department</h3>
+<p1 class ="text-black-50">@DeptName</p1>
+ 
+&nbsp;
+
+ <a href= "#" class="  btn btn-primary">Zurück</a>
+
+@code {
+    [Parameter]
+    public string DeptName { get; set; }
+
+}

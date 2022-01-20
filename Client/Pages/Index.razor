@@ -12,18 +12,26 @@ else{
 <div class ="card-deck">
     @foreach(var Kd in Kunden)
     {
-        <div class="card m-3">
+        <div class="card m-4">
             <div class="card-header">
                 <h3>@Kd.KdName</h3>
                 <h3>@Kd.KdId</h3>
                 <h3>@Kd.KdAdresse</h3>
                 <h3>@Kd.KdImgPath</h3>
+                <h3>@Kd.KdAlter</h3>
             </div>
             <img class ="card-img-top" src ="@Kd.KdImgPath" />     
             <div class ="card-footer alert-info text-center">
-                <a a href="#" class ="btn btn-primary">Anzeigen</a>
-                <a href="#" class="btn btn-primary">Bararbeiten</a>
-                <a ahref= "#" class="btn btn-danger">Löschen</a>
+
+               
+                 
+                <a href="#" class ="btn btn-primary" @onclick="() => GetDepartment(Kd.Dept.Id)">Anzeigen</a>
+
+
+                &nbsp;
+                <a href= "#" class="btn btn-primary" @onclick="()=> Update_Kunde(Kd.KdId)">Bararbeiten</a>
+
+                <a href= "#" class="btn btn-danger">Löschen</a>
 
                 </div>
             </div>
