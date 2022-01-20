@@ -1,5 +1,6 @@
 ﻿
 using KundenManagment1.Server.Models;
+using KundenManagment1.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KundenManagment1.Server.Controllers
@@ -19,10 +20,24 @@ namespace KundenManagment1.Server.Controllers
         {
             try
             {
-                return Ok(await kundeReposirtory.GetKunden());
+                //return Ok(await kundeReposirtory.GetKunden());
+                var result = await kundeReposirtory.GetKunden();
+                return Ok(result);
             }
             catch { throw; }
         }
+        [HttpGet("{id}")]
+         public async Task<ActionResult<Dept>>GetDept(int id)
+        {
+            return Ok(await kundeReposirtory.GetDept( id));
+        }
 
+        [HttpGet("Get/{id}")]
+        public async Task<ActionResult<Kunde>> GetKdById(int id)
+        {
+            //return Ok(await kundeReposirtory.GetKdById(id));
+            var result = await kundeReposirtory.GetKdById(id);
+            return Ok(result);
+        }
     }
 }

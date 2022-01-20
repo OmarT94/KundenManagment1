@@ -10,52 +10,69 @@ namespace KundenManagment1.Client.Pages
         public IkundenService KundenService { get; set; }
    
         public IEnumerable<Kunde> Kunden { get; set; }
+        public Dept Depts { get; set; }
+        [Inject]
+         public NavigationManager NavigationManager { get; set; }
+
+
         protected override async Task OnInitializedAsync()
         {
             Kunden = (await KundenService.GetKunden()).ToList();
             //LoadKunden();
         }
 
-
-        private void LoadKunden()
+        public async Task GetDepartment(int id)
         {
-            System.Threading.Thread.Sleep(30);
-            Kunde k1 = new Kunde
-            {
-                KdId = 1,
-                KdName = "Omar",
-                KdAdresse = "HH",
-                KdImgPath = "img/55.JPG"
-            };
-
-            Kunde k2 = new Kunde
-            {
-                KdId = 2,
-                KdName = "Mohammad",
-                KdAdresse = "HH",
-                KdImgPath = "img/2.JPG"
-            };
-
-            Kunde k3 = new Kunde
-            {
-                KdId = 3,
-                KdName = "Danisch",
-                KdAdresse = "HH",
-                KdImgPath = "img/3.JPG"
-            };
-
-            Kunde k4 = new Kunde
-            {
-                KdId = 4,
-                KdName = "Rudi",
-                KdAdresse = "HH",
-                KdImgPath = "img/4.JPG"
-            };
-
-            Kunden = new List<Kunde> { k1, k2, k3, k4 };
-
-
-
+            Depts= await KundenService.GetDept(id);
+            NavigationManager.NavigateTo($"/dept/{Depts.DeptName}");
         }
+
+        public void Update_Kunde(int id)
+        {
+            
+            NavigationManager.NavigateTo($"/update/{id}", true);
+        }
+
+
+        //private void LoadKunden()
+        //{
+        //    System.Threading.Thread.Sleep(30);
+        //    Kunde k1 = new Kunde
+        //    {
+        //        KdId = 1,
+        //        KdName = "Omar",
+        //        KdAdresse = "HH",
+        //        KdImgPath = "img/55.JPG"
+        //    };
+
+        //    Kunde k2 = new Kunde
+        //    {
+        //        KdId = 2,
+        //        KdName = "Mohammad",
+        //        KdAdresse = "HH",
+        //        KdImgPath = "img/2.JPG"
+        //    };
+
+        //    Kunde k3 = new Kunde
+        //    {
+        //        KdId = 3,
+        //        KdName = "Danisch",
+        //        KdAdresse = "HH",
+        //        KdImgPath = "img/3.JPG"
+        //    };
+
+        //    Kunde k4 = new Kunde
+        //    {
+        //        KdId = 4,
+        //        KdName = "Rudi",
+        //        KdAdresse = "HH",
+        //        KdImgPath = "img/4.JPG"
+        //    };
+
+        //    Kunden = new List<Kunde> { k1, k2, k3, k4 };
+
+
+
+        //}
     }
 }

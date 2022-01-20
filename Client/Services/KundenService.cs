@@ -17,7 +17,18 @@ namespace KundenManagment1.Client.Services
         {
             this.httpClient = httpClient;
         }
-       public async Task<IEnumerable<Kunde>> GetKunden()
+
+        public async Task<Dept> GetDept(int id)
+        {
+            return await httpClient.GetFromJsonAsync<Dept>("Kunden"+"/"+id);
+        }
+
+        public async Task<Kunde> GetKdById(int id)
+        {
+            return await httpClient.GetFromJsonAsync<Kunde>("Kunden/Get" + "/" + id); 
+        }
+
+        public async Task<IEnumerable<Kunde>> GetKunden()
         {
             return await httpClient.GetFromJsonAsync<Kunde[]>("Kunden");
         }
