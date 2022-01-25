@@ -39,5 +39,20 @@ namespace KundenManagment1.Server.Controllers
             var result = await kundeReposirtory.GetKdById(id);
             return Ok(result);
         }
+
+        [HttpPost("update")]
+        
+
+        public async Task<ActionResult<Kunde>> UpdateKunde(Kunde kunde)
+        {
+            
+            return Ok(await kundeReposirtory.UpdateKunde(kunde));
+          
+            //var result = await kundeReposirtory.UpdateKunde(kunde);
+            //   return Ok(result);
+
+        }
+
+
     }
 }

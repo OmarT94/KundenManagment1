@@ -22,7 +22,23 @@ namespace KundenManagment1.Server.Models
 
         public async Task<Kunde> GetKdById(int id)
         {
+            //return await appDbContext.Kunden
+            //    .FirstOrDefaultAsync(e => e.KdId == id);
             return await appDbContext.Kunden
+                .Select(x => new Kunde
+                {
+                    KdStraße = x.KdStraße,
+                    KdHausNummer=x.KdHausNummer,
+                    KdPLZ=x.KdPLZ,
+                    KdStadt=x.KdStadt,
+                    DeptId = x.DeptId,
+                    KdId = x.KdId,
+                    KdVorname=x.KdVorname,
+                    KdName = x.KdName,
+                    KdImgPath = x.KdImgPath,
+                    KdAlter = x.KdAlter,
+                    Dept = appDbContext.Depts.ToList()
+                })
                 .FirstOrDefaultAsync(e => e.KdId == id);
         }
 
@@ -31,6 +47,13 @@ namespace KundenManagment1.Server.Models
             return await appDbContext.Kunden
                 .Include(e=>e.Dept)
                 .ToListAsync();
+        }
+
+        public async Task<Kunde> UpdateKunde(Kunde kunde)
+        {
+            appDbContext.Entry(kunde).State=EntityState.Modified;
+            await appDbContext.SaveChangesAsync();
+            return kunde;
         }
     }
 }

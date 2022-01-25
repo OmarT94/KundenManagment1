@@ -10,7 +10,7 @@ namespace KundenManagment1.Shared
 {
     public class Dept
     {
-       
+
 
         [Key]
         public int Id { get; set; }

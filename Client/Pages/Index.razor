@@ -14,19 +14,25 @@ else{
     {
         <div class="card m-4">
             <div class="card-header">
-                <h3>@Kd.KdName</h3>
-                <h3>@Kd.KdId</h3>
-                <h3>@Kd.KdAdresse</h3>
-                <h3>@Kd.KdImgPath</h3>
-                <h3>@Kd.KdAlter</h3>
+                <h3>Name: @Kd.KdName</h3>
+                <h3>Vorname: @Kd.KdVorname</h3>
+                <h3>KundenId: @Kd.KdId</h3>
+                <h3>Straße: @Kd.KdStraße</h3>
+                <h3>Hausnummer: @Kd.KdHausNummer</h3>
+                <h3>Postleitszahl: @Kd.KdPLZ</h3>
+                <h3>Stadt: @Kd.KdStadt</h3>
+                <h3>Imgpath: @Kd.KdImgPath</h3>
+                <h3>Alter: @Kd.KdAlter</h3>
+                 <h3>Dept: @Kd.DeptId</h3>
             </div>
             <img class ="card-img-top" src ="@Kd.KdImgPath" />     
             <div class ="card-footer alert-info text-center">
 
-               
-                 
-                <a href="#" class ="btn btn-primary" @onclick="() => GetDepartment(Kd.Dept.Id)">Anzeigen</a>
-
+               @foreach(var dept in Kd.Dept)
+                    {
+                        <a href="#" class ="btn btn-primary" @onclick="() => GetDepartment(dept.Id)">Anzeigen</a>
+                    }
+                     @*<a href="#" class ="btn btn-primary" @onclick="() => GetDepartment(Kd.Dept.Id)">Anzeigen</a>*@
 
                 &nbsp;
                 <a href= "#" class="btn btn-primary" @onclick="()=> Update_Kunde(Kd.KdId)">Bararbeiten</a>

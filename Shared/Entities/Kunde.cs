@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Json;
 
 namespace KundenManagment1.Shared
 {
@@ -12,17 +13,23 @@ namespace KundenManagment1.Shared
     {
         [Key]
         public int KdId { get; set; }
+        [Required]
+        public string KdVorname { get; set; }
         public string KdName { get; set; }
-        public string KdAdresse { get; set; }
+        public string KdStraße { get; set; }
+        public int KdHausNummer { get; set; }
+        public string KdStadt { get; set; }
+        public int KdPLZ { get; set; }
         public string KdImgPath { get; set; }
         public int KdAlter { get; set; }
+        public int DeptId { get; set; }
 
-        [ForeignKey("DeptId")]
-        //[ForeignKey("Id")]
+        //[ForeignKey("DeptId")]
+        [ForeignKey("Id")]
 
-        public Dept Dept { get; set; }          //All DeptId werden angezeigt 
+        /* public Dept Dept { get; set; }*/          //All DeptId werden angezeigt 
 
-        //public virtual ICollection<Dept> Dept { get; set; }
+        public virtual ICollection<Dept> Dept { get; set; }
 
     }
 }

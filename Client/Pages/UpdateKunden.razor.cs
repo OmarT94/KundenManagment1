@@ -20,10 +20,16 @@ namespace KundenManagment1.Client.Pages
 
         [Inject]
         public IkundenService KundenService { get; set; }
+        public List<Dept> dept { get; set; } = new List<Dept>(); 
         protected override async Task OnInitializedAsync()
         {
             kunde = (await KundenService.GetKdById(Convert.ToInt32(id)));
         }
 
+      
+        public async void HandleValidSubmit()
+        {
+            var result = (await KundenService.UpdateKunde(kunde));
+        }
     }
 }
