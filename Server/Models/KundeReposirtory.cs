@@ -20,6 +20,12 @@ namespace KundenManagment1.Server.Models
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
 
+        public  async Task<IEnumerable<Dept>> GetDeptAll()
+        {
+            return await appDbContext.Depts
+               .ToListAsync();
+        }
+
         public async Task<Kunde> GetKdById(int id)
         {
             //return await appDbContext.Kunden

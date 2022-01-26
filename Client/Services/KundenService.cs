@@ -26,6 +26,11 @@ namespace KundenManagment1.Client.Services
             return await httpClient.GetFromJsonAsync<Dept>("Kunden"+"/"+id);
         }
 
+        public async Task<IEnumerable<Dept>> GetDeptAll()
+        {
+            return await httpClient.GetFromJsonAsync<Dept[]>("Kunden/Dept");
+        }
+
         public async Task<Kunde> GetKdById(int id)
         {
             return await httpClient.GetFromJsonAsync<Kunde>("Kunden/Get" + "/" + id); 
@@ -61,5 +66,9 @@ namespace KundenManagment1.Client.Services
         //{
         //    throw new NotImplementedException();
         //}
+
+       
+
+        
     }
 }

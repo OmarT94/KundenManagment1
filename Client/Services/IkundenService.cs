@@ -9,5 +9,7 @@ namespace KundenManagment1.Client.Services
         Task<Dept> GetDept(int id);
         Task<Kunde> GetKdById(int id);
         Task<Kunde> UpdateKunde(Kunde kunde);
+        Task<IEnumerable<Dept>>GetDeptAll ();
+
     }
 }

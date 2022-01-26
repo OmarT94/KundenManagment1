@@ -1,4 +1,116 @@
-﻿<h3>NeueKunde</h3>
+﻿@page "/Speichern"
+<h3>NeueKunde</h3>
+<EditForm Model="kunde" OnSubmit ="@HandleValidSubmit">
+
+    <div class="container">
+        <DataAnnotationsValidator />
+
+        <ValidationSummary />
+        
+        <div class ="form-group row">
+            <label for ="name" class ="col-sm-2">Kunden Name: </label>
+            <div class="col-sm-10">
+                <InputText id="name" @bind-Value="kunde.KdName" class="form-control"></InputText>
+
+
+     </div>
+    </div>  
+      &nbsp;
+
+    <div class ="form-group row">
+            <label for ="Vorname" class ="col-sm-2">Kunden Vorname: </label>
+            <div class="col-sm-10">
+                <InputText id="Vorname" @bind-Value="kunde.KdVorname" class="form-control"></InputText>
+    </div>
+    </div>
+    &nbsp;
+
+
+    <div class ="form-group row">
+            <label for ="Straße" class ="col-sm-2">Kunden Streße: </label>
+            <div class="col-sm-10">
+                <InputText id="Adresse" @bind-Value="kunde.KdStraße" class="form-control"></InputText>
+    </div>
+    </div>
+      &nbsp;
+
+    <div class ="form-group row">
+            <label for ="HausNummer" class ="col-sm-2">Kunden HausNummer: </label>
+            <div class="col-sm-10">
+                <InputNumber id="Hausnummer" @bind-Value="kunde.KdHausNummer" class="form-control"></InputNumber>
+    </div>
+    </div>
+     &nbsp;
+
+    <div class ="form-group row">
+            <label for ="PlZ" class ="col-sm-2">Kunden PLZ: </label>
+            <div class="col-sm-10">
+                <InputNumber id="PLZ" @bind-Value="kunde.KdPLZ" class="form-control"></InputNumber>
+    </div>
+    </div>
+     &nbsp;
+
+    <div class ="form-group row">
+            <label for ="Stadt" class ="col-sm-2">Kunden Stadt: </label>
+            <div class="col-sm-10">
+                <InputText id="Stadt" @bind-Value="kunde.KdStadt" class="form-control"></InputText>
+    </div>
+    </div>
+
+    &nbsp;
+    <div class ="form-group row">
+            <label for ="image" class ="col-sm-2">Kunden Image: </label>
+            <div class="col-sm-10">
+                <InputText id="Image" @bind-Value="kunde.KdImgPath" class="form-control"></InputText>
+    </div>
+    </div>
+@*
+      &nbsp;
+    <div class ="form-group row">
+            <label for ="image" class ="col-sm-2">Dept: </label>
+            <div class="col-sm-10">
+>                <InputSelect @bind-Value="Kunde.DeptId">
+                    <option value="0">Select Dept</option>
+                    @if (Dept !=null)
+                    {
+                        foreach (var item in Dept)
+                        {
+                            <option value=@item.Id>@item.DeptName </option>
+                        }
+                    }
+
+                </InputSelect>
+    </div>
+    </div>*@
+
+
+
+    &nbsp;
+     <div class ="form-group row">
+            <label for ="alter" class ="col-sm-2">Kunden Alter: </label>
+            <div class="col-sm-10">
+                 <input type="number" @bind-value="kunde.KdAlter"/>
+                @*<InputText id="Alter" @bind-Value="kunde.KdAlter.ToString()" class="form-control"> </InputText>              @*das funkttioniert hier  nicht!!!!!*@
+               
+    </div>
+    </div>
+
+     &nbsp; 
+    <div class ="form-group row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+               @* <button type="button"class="form-control bg-primary text-white "> Submit </button>  *@
+    </div>
+    <div class="col-sm-4"></div>
+
+    </div>
+    </div>
+
+
+
+</EditForm>
+
 
 @code {
 

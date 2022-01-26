@@ -53,6 +53,18 @@ namespace KundenManagment1.Server.Controllers
 
         }
 
+        [HttpGet("Dept")]
+        public async Task<ActionResult> GetDeptAll()
+        {
+            try
+            {
+                //return Ok(await kundeReposirtory.GetKunden());
+                var result = await kundeReposirtory.GetDeptAll();
+                return Ok(result);
+            }
+            catch { throw; }
+        }
+
 
     }
 }

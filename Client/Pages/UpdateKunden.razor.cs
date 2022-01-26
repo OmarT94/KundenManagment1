@@ -26,7 +26,10 @@ namespace KundenManagment1.Client.Pages
             kunde = (await KundenService.GetKdById(Convert.ToInt32(id)));
         }
 
-      
+      public async void GetDepartment(int id)
+        {
+            Depts = await KundenService.GetDept(id);
+        }
         public async void HandleValidSubmit()
         {
             var result = (await KundenService.UpdateKunde(kunde));

@@ -13,7 +13,9 @@ namespace KundenManagment1.Shared
     {
         [Key]
         public int KdId { get; set; }
-        [Required]
+
+        //[Required]
+        //[StringLength(30)]
         public string KdVorname { get; set; }
         public string KdName { get; set; }
         public string KdStraße { get; set; }
